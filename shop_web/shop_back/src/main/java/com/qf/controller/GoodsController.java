@@ -3,6 +3,7 @@ package com.qf.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.qf.entity.Goods;
 import com.qf.servie.IGoodsService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,10 @@ public class GoodsController {
 
     @Reference
     private IGoodsService goodsService;
+
+    @Value("${server1.ip}")
+    private String serverIp;
+
     /**
      * 商品列表
      * @return
@@ -25,10 +30,12 @@ public class GoodsController {
     @RequestMapping("/list")
     public String goodsList(ModelMap map) {
         List<Goods> goods = goodsService.queryAll();
-        for (Goods g : goods) {
-            System.out.println(g);
-        }
+//        for (Goods g : goods) {
+//            System.out.println(g);
+//        }
         map.put("goodslist", goods);
+        map.put("serverip", serverIp);
+
         return "goodslist";
     }
 
@@ -55,19 +62,19 @@ public class GoodsController {
         System.out.println("添加的商品信息: "+goods);
         int insert = goodsService.insert(goods);
         System.out.println(insert);
-        return null;
+        return "redirect:/goods/list";
     }
 
 
     @RequestMapping("/delete")
-    public String delete(int id) {
+    public String delete(Integer id) {
         goodsService.deleteById(id);
-        return "redirect:topage/list";
+        return "redirect:/goods/list";
     }
 
 
     @RequestMapping("/toUpdate")
-    public String toUpdate(int id) {
+    public String toUpdate(Integer id) {
         Goods goods = goodsService.getGoodsById(id);
         System.out.println(goods);
 

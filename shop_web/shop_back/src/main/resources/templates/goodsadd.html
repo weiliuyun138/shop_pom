@@ -56,11 +56,23 @@
                         alert(file.name + "缩略图生成失败!");
                     }else {
                         //讲缩略图放入div容器中
-                        var img = "<img src=\""+ret+"\" style=\"height:100px; width=100px; margin-right=5px;\"/>";
+                        var img = "<img src=\""+ret+"\" style=\"height:100px; width:100px; margin-right:5px;\"/>";
                         $("#imgs_div").append(img);
                     }
                 }, 100, 100);
             });
+
+            //给webuploader绑定上传成功的事件
+            uploader.on("uploadSuccess",function (file,response) {
+//                alert("上传成功！");
+                var val = $("#image_paths").val();
+                if(val.length>0) {
+                    val += "|";
+                }
+                val += response.uploadPath;
+                $("#image_paths").val(val);
+            })
+
         });
 
         /**
@@ -94,6 +106,7 @@
                             </div>
                             <button type="button" class="mybutton" style="margin-bottom: 10px" onclick="upload_imgs()">上传图片</button>
                             <div id="filePicker">选择图片</div>
+                            <input  type="hidden" id="image_paths" name="gimage" value=""/>
                         </p>
                         <p>
                             <label>商品价格</label> <input
@@ -107,8 +120,7 @@
                         </p>
                         <p>
                             <label>商品描述</label>
-                            <textarea class="text-input textarea wysiwyg" name="ginfo" cols="79" rows="15">
-                            </textarea>
+                            <textarea class="text-input textarea wysiwyg" name="ginfo" cols="79" rows="15"></textarea>
                         </p>
 
                         <p>

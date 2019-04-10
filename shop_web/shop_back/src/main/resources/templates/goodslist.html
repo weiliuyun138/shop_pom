@@ -34,6 +34,7 @@
                         <th><input class="check-all" type="checkbox" /></th>
                         <th>商品名称</th>
                         <th>商品价格</th>
+                        <th>商品图片</th>
                         <th>库存</th>
                         <th>时间</th>
                         <th>操作</th>
@@ -44,15 +45,17 @@
                         <td><input type="checkbox" /></td>
                         <td th:text="${good.gname}">商品名称</td>
                         <td th:text="${good.gprice}">商品价格</td>
+                        <td><img style="width: 100px;height: 65px;" th:src="|http://${serverip}/${#strings.setSplit(good.gimage,'|')[0]}|"></td>
                         <td th:text="${good.gsave}">库存</td>
                         <td th:text="${#dates.format(good.createTime,'yyyy-MM-dd')}"></td>
                         <td>
-                            <!-- Icons --> <a href="#" title="Edit"><img
-                                src="resources/images/icons/pencil.png" alt="Edit" /></a> <a
-                                href="goods/toUpdate?id=${good.id}" title="Delete"><img
-                                src="resources/images/icons/cross.png" alt="Delete" /></a> <a
-                                href="goods/delete?id=${good.id}" title="Edit Meta"><img
-                                src="resources/images/icons/hammer_screwdriver.png"
+                            <!-- Icons -->
+                            <a th:href="|goods/delete?id=${good.id}|" title="Edit">
+                                <img src="resources/images/icons/pencil.png" alt="Edit" /></a>
+                            <a th:href="|goods/delete?id=${good.id}|" title="Delete">
+                                <img src="resources/images/icons/cross.png" alt="Delete" /></a>
+                            <a href="#" title="Edit Meta">
+                                <img src="resources/images/icons/hammer_screwdriver.png"
                                 alt="Edit Meta" /></a>
                         </td>
                     </tr>
