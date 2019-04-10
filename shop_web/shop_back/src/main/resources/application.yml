@@ -1,0 +1,13 @@
+server:
+  port: 1123
+
+spring:
+  thymeleaf:
+    cache: false
+dubbo:
+  application:
+    name: back_web
+  registry:
+    address: zookeeper://47.112.207.98:2181
+  consumer:
+    check: false
