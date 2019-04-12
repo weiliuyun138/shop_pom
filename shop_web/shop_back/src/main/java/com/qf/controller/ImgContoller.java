@@ -34,9 +34,11 @@ public class ImgContoller {
         System.out.println("后缀："+houzui);
         //上传到FastDFS
         try {
+
             StorePath storePath  = fastFileStorageClient.uploadImageAndCrtThumbImage(file.getInputStream(), file.getSize(), houzui, null);
             //获得上传到FasDFS中的图片访问路径
             String fullPath = storePath.getFullPath();
+
             return "{\"uploadPath\":\""+fullPath+"\"}";//{"uploadPath":"path"}
         } catch (IOException e) {
             e.printStackTrace();
