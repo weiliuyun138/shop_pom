@@ -18,7 +18,7 @@ public class SearchController {
     @Reference
     private ISearchService searchService;
 
-    @Value("${server.ip")
+    @Value("${server.ip}")
     private String serverip;
     /**
      * 根据关键字搜索
@@ -33,6 +33,7 @@ public class SearchController {
         System.out.println("调用服务搜索到的结果："+goods);
         modelMap.put("goodlist", goods);
         modelMap.put("serverip", serverip);
+        System.out.println(serverip);
 
         return "search_list";
     }

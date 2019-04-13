@@ -15,6 +15,7 @@ dubbo:
     address: zookeeper://47.112.207.98:2181
   consumer:
     check: false
+    timeout: 30000
 fdfs:
   pool:
     jmx-enabled: false

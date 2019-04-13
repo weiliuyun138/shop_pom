@@ -36,6 +36,16 @@ spring:
       web-stat-filter:
         enabled: true
         url-pattern: /*
+  #配置rabbitmq
+  rabbitmq:
+    host: 47.112.207.98
+    port: 5672
+    username: admin
+    password: admin
+    #虚拟主机
+    virtual-host: /admin
+
+
 
 dubbo:
   application:
@@ -45,4 +55,7 @@ dubbo:
   protocol:
     name: dubbo
     port: 20880
+  consumer:
+    check: false
+    timeout: 3000
 

@@ -11,5 +11,5 @@ public interface IGoodsService {
 
     int deleteById(int id);
 
-    Goods getGoodsById(int id);
+    Goods queryById(int id);
 }

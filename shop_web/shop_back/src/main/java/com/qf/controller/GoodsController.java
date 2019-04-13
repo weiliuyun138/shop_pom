@@ -75,7 +75,7 @@ public class GoodsController {
 
     @RequestMapping("/toUpdate")
     public String toUpdate(Integer id) {
-        Goods goods = goodsService.getGoodsById(id);
+        Goods goods = goodsService.queryById(id);
         System.out.println(goods);
 
         return null;
