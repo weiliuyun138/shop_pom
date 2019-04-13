@@ -1,0 +1,26 @@
+#服务端口
+server:
+  port: 1125
+#dubbo发布服务
+dubbo:
+  application:
+    name: search_service
+  registry:
+    address: zookeeper://47.112.207.98:2181
+  protocol:
+    name: dubbo
+    port: 20881
+  consumer:
+    timeout: 1200000
+#solr
+spring:
+  data:
+    solr:
+      host: http://47.112.207.98:8080/solr
+  rabbitmq:
+    host: 47.112.207.98
+    username: admin
+    password: admin
+    virtual-host: /admin
+
+

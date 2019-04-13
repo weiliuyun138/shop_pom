@@ -1,0 +1,19 @@
+#商品详情
+server:
+  port: 1120
+dubbo:
+  application:
+    name: item_web
+  registry:
+    address: zookeeper://47.112.207.98:2181
+
+  consumer:
+    check: false
+spring:
+  rabbitmq:
+    host: 47.112.207.98
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: /admin
+

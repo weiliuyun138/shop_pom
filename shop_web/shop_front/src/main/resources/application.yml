@@ -1,0 +1,7 @@
+
+server:
+  port: 1122
+
+spring:
+  thymeleaf:
+    cache: false

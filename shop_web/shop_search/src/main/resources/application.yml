@@ -1,0 +1,15 @@
+#搜索工程
+server:
+  port: 1121
+  ip: 47.112.207.98
+  #solr
+spring:
+  data:
+    solr:
+      host: http://47.112.207.98:8080/solr
+dubbo:
+  registry:
+    address: zookeeper://47.112.207.98:2181
+  application:
+    name: search_web
+
