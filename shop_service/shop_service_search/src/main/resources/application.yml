@@ -12,11 +12,14 @@ dubbo:
     port: 20881
   consumer:
     timeout: 1200000
-#solr
+
+#配置关键字搜索solr搜索引擎
 spring:
   data:
     solr:
       host: http://47.112.207.98:8080/solr
+
+  #配置消息中间件rabbitmq
   rabbitmq:
     host: 47.112.207.98
     username: admin

@@ -24,6 +24,9 @@ fdfs:
     height: 100
   tracker-list:
     - 47.112.207.98:22122
+  # - 47.112.207.98:22122 可以多个,集群时
+  connect-timeout: 600
+  so-timeout: 1500
 
 
 

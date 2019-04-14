@@ -19,7 +19,7 @@ import java.util.UUID;
 @RequestMapping("/imgs")
 public class ImgContoller {
 
-    public static final String UPLOAD_PATH="D:\\kaifa\\IDEAWorkSpace\\upload\\";
+//    public static final String UPLOAD_PATH="D:\\kaifa\\IDEAWorkSpace\\upload\\";
 
 
     @Autowired
@@ -34,7 +34,6 @@ public class ImgContoller {
         System.out.println("后缀："+houzui);
         //上传到FastDFS
         try {
-
             StorePath storePath  = fastFileStorageClient.uploadImageAndCrtThumbImage(file.getInputStream(), file.getSize(), houzui, null);
             //获得上传到FasDFS中的图片访问路径
             String fullPath = storePath.getFullPath();
@@ -55,5 +54,4 @@ public class ImgContoller {
 //        }
         return null;
     }
-
 }

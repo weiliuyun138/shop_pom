@@ -15,8 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -72,14 +71,30 @@ public class ShopSearchApplicationTests {
 		SolrQuery solrQuery = new SolrQuery();
 //		solrQuery.setQuery("ginfo:省电");
 //		solrQuery.setQuery("gname:洗衣机 || ginfo:省电");
-		String keyword = "省电洗衣机";
-		solrQuery.setQuery("gname:" + keyword + "|| ginfo:" + keyword);
-
+		String keyword = "冰箱";
+		solrQuery.setQuery("gname:" + keyword + " || ginfo:" + keyword);
 
 		//获得查询结果
 		QueryResponse result = solrClient.query(solrQuery);
 		SolrDocumentList documentList = result.getResults();
 		for (SolrDocument document:documentList) {
+
+//			Collection<String> fieldNames = document.getFieldNames();
+//			for (String st : fieldNames) {
+//				System.out.println("fileName: "+st +" fileValue:"+document.getFieldValue(st));
+//
+//				Collection<Object> fieldValues = document.getFieldValues(st);
+//				for (Object ob : fieldValues) {
+//					System.out.println("fieldValues---:"+ob);
+//				}
+//			}
+//			Map<String, Object> fieldValueMap = document.getFieldValueMap();
+//			for (String key : fieldValueMap.keySet()) {
+//				System.out.println("fieldValueMap---:key"+key+" value:"+fieldValueMap.get(key));
+//			}
+
+			System.out.println("---------分割--------");
+
 			long id = Long.parseLong(document.get("id")+"");
 			String gname = (String) document.get("gname");
 			String ginfo = (String) document.get("ginfo");

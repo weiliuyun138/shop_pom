@@ -28,12 +28,13 @@ public class SearchController {
     @RequestMapping("/searchByKeyWord")
     public String searchByKeyWord(String keyword, ModelMap modelMap) {
 
-        System.out.println("搜索工程获得的关键字: " + keyword);
+//        System.out.println("搜索工程获得的关键字: " + keyword);
         List<Goods> goods  = searchService.searchGoods(keyword);
-        System.out.println("调用服务搜索到的结果："+goods);
+//        System.out.println("调用服务搜索到的结果："+goods);
         modelMap.put("goodlist", goods);
         modelMap.put("serverip", serverip);
-        System.out.println(serverip);
+        modelMap.put("keyword", keyword);
+//        System.out.println(serverip);
 
         return "search_list";
     }

@@ -21,6 +21,13 @@
     <!-- jQuery Configuration -->
     <!--<script type="text/javascript"-->
             <!--src="resources/scripts/simpla.jquery.configuration.js"></script>-->
+    <!--引入富文本编辑器相关-->
+    <link rel="stylesheet" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+    <link href="resources/dist/summernote.css" rel="stylesheet"/>
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+    <script src="resources/dist/summernote.js"></script>
+    <script src="resources/dist/lang/summernote-zh-CN.js"></script>    <!-- 中文-->
 
     <!--引入上传控件-->
     <link rel="stylesheet" href="resources/widget/webuploader/webuploader.css" type="text/css" media="screen"/>
@@ -73,6 +80,12 @@
                 $("#image_paths").val(val);
             })
 
+            /*富文本*/
+            $(".summernote").summernote({
+               height:500,
+                tabsize:2,
+                lang:'zh-CN'
+            });
         });
 
         /**
@@ -82,6 +95,11 @@
             if (uploader) {
                 uploader.upload();
             }
+        }
+
+        function infoText() {
+            var ginfotext = $('.summernote').summernote('code');
+            $("#ginfo").val(ginfotext);
         }
     </script>
 
@@ -120,11 +138,13 @@
                         </p>
                         <p>
                             <label>商品描述</label>
-                            <textarea class="text-input textarea wysiwyg" name="ginfo" cols="79" rows="15"></textarea>
+                            <!--富文本-->
+                            <div class="summernote" ></div>
+                            <input type="hidden" name="ginfo" id="ginfo"/>
+                            <!--<textarea class="text-input textarea wysiwyg" name="ginfo" cols="50" rows="15"></textarea>-->
                         </p>
-
                         <p>
-                            <input class="mybutton" type="submit" value="提交" />
+                            <input class="mybutton" type="submit" onclick="infoText()" value="提交" />
                         </p>
                     </fieldset>
                     <div class="clear"></div>

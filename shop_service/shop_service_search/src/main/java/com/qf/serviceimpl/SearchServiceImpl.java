@@ -55,6 +55,7 @@ public class SearchServiceImpl implements ISearchService {
 
             //将搜索结果集  --> list<Goods>
             for (SolrDocument document : results) {
+
                 Goods goods = new Goods();
                 goods.setId(Integer.parseInt(document.get("id").toString()));
                 goods.setGname(document.get("gname").toString());

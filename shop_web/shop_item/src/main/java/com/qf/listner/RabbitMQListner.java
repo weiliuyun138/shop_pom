@@ -21,9 +21,10 @@ public class RabbitMQListner {
     @Autowired
     private Configuration configuration;
 
+
     @RabbitListener(queues = "goods_queue2")
     public void rabbitmqMsg(Goods goods) {
-        System.out.println("详情,接受到消息:" +goods);
+//        System.out.println("详情,接受到消息:" +goods);
 
         //获得request对象
 //        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
@@ -36,7 +37,7 @@ public class RabbitMQListner {
 //        System.out.println(gimage);
         String[] images = gimage.split("\\|");
 
-        //通过模板生成html页面
+        /*通过模板生成html页面*/
         try {
             //获得商品详情魔板对象
             Template template = configuration.getTemplate("goodsitem.ftl");
@@ -51,7 +52,6 @@ public class RabbitMQListner {
             //获得classpath路径
             String path = this.getClass().getResource("/static/page/").getPath() + goods.getId() + ".html";
             template.process(map,new FileWriter(path));
-
         } catch (Exception e) {
             e.printStackTrace();
         }
