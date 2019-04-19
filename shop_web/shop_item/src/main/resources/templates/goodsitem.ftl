@@ -13,7 +13,37 @@
     <script type="text/javascript" src="js/jquery.js" ></script>
     <script type="text/javascript" src="js/topNav.js" ></script>
     <script type="text/javascript" src="js/shop_goods.js" ></script>
+    <#--<script type="text/javascript" src="http://localhost:1119/js/islogin.js"></script>-->
+        <script type="text/javascript">
+            $(function () {
+                $.ajax({
+                    url: "http://localhost:1119/sso/islogin",
+                    success:function (data) {
+//                    alert("跨域的返回结果： " + data);
+                        if(data){
+                            // 已经登录
+                            $("#pid").html(JSON.parse(data).nickname + " 您好，欢迎来到<b><a>ShopCZ商城</a> <a href='http://localhost:1119/sso/logout'>注销</a></b>");
+                        } else {
+                            // 未登录
+                            $("#pid").html("[<a href='javascript:login();'>登录</a>][<a href='http://localhost:1119/sso/toregister'>注册</a>]");
+                        }
+                    },
+                    dataType: "jsonp",
+                    jsonpCallback:"islogin"
+                });
+            });
+
+            //进行登录
+            function login(){
+                var returnUrl = location.href;
+                //编码url
+                returnUrl = encodeURI(returnUrl);
+//                alert("dizhi:" + returnUrl);
+                location.href = "http://localhost:1119/sso/tologin?returnUrl=" + returnUrl;
+            }
+        </script>
 </head>
+
 <body>
 <!-- Header  -wll-2013/03/24 -->
 <div class="shop_hd">
@@ -22,7 +52,8 @@
         <div class="shop_hd_topNav_all">
             <!-- Header TopNav Left -->
             <div class="shop_hd_topNav_all_left">
-                <p>您好，欢迎来到<b><a href="/">ShoopNC商城</a></b>[<a href="">登录</a>][<a href="">注册</a>]</p>
+                <#--<p>您好，欢迎来到<b><a href="/">ShoopNC商城</a></b>[<a href="">登录</a>][<a href="">注册</a>]</p>-->
+                <p id="pid"></p>
             </div>
             <!-- Header TopNav Left End -->
 

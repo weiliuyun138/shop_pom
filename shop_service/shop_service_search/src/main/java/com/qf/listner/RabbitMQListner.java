@@ -27,23 +27,23 @@ public class RabbitMQListner {
         System.out.println("搜索服务,接受到消息: "+goods);
 
         //同步索引库
-        searchService.insertGoods(goods);
-//        //创建document对象
-//        SolrInputDocument solrDocument = new SolrInputDocument();
-//        solrDocument.addField("id", goods.getId());
-//        solrDocument.addField("gname", goods.getGname());
-//        solrDocument.addField("gimage", goods.getGimage());
-//        solrDocument.addField("ginfo", goods.getGinfo());
-//        solrDocument.addField("gprice", goods.getGprice().toString());
-//        solrDocument.addField("gsave", goods.getGsave());
-//        try {
-//            solrClient.add(solrDocument);
-//            solrClient.commit();
-//        } catch (SolrServerException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+//        searchService.insertGoods(goods);
+        //创建document对象
+        SolrInputDocument solrDocument = new SolrInputDocument();
+        solrDocument.addField("id", goods.getId());
+        solrDocument.addField("gname", goods.getGname());
+        solrDocument.addField("gimage", goods.getGimage());
+        solrDocument.addField("ginfo", goods.getGinfo());
+        solrDocument.addField("gprice", goods.getGprice().toString());
+        solrDocument.addField("gsave", goods.getGsave());
+        try {
+            solrClient.add(solrDocument);
+            solrClient.commit();
+        } catch (SolrServerException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

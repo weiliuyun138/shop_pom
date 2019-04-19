@@ -64,10 +64,11 @@ public class SearchServiceImpl implements ISearchService {
                 goods.setGsave(Integer.parseInt(document.get("gsave").toString()));
 
                 //判断当前商品是否有高亮
-                if (highlighting.get(goods.getId())!=null) {
-                    //有高亮的内容
-                    Map<String, List<String>> stringListMap = highlighting.get(goods.getId() + "");
-                    //获得其中的高亮内容
+
+                //有高亮的内容
+                Map<String, List<String>> stringListMap = highlighting.get(goods.getId() + "");
+                //获得其中的高亮内容
+                if (stringListMap.get("gname") != null) {
                     String gname = stringListMap.get("gname").get(0);
                     //将高亮的内容替换到对象中
                     goods.setGname(gname);

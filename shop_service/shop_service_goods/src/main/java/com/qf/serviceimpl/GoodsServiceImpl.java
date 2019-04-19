@@ -35,7 +35,6 @@ public class GoodsServiceImpl implements IGoodsService{
 
         //添加商品到solr索引库
 //        searchService.insertGoods(goods);
-
         //将添加商品的信息， 放入rabbitmq中
         template.convertAndSend(RabbitMQConfiguration.FANOUT_NAME, "",goods);
 

@@ -12,4 +12,6 @@ dubbo:
     address: zookeeper://47.112.207.98:2181
   application:
     name: search_web
+  consumer:
+    check: false
 
