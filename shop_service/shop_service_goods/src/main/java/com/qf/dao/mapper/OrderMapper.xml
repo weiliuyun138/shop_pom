@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qf.dao.OrderMapper" >
+
+    <resultMap id="orderMap" type="com.qf.entity.Orders">
+        <id column="id" property="id"></id>
+
+        <result column="orderid" property="orderid"/>
+        <result column="person" property="person"/>
+        <result column="address" property="address"/>
+        <result column="phone" property="phone"/>
+        <result column="coede" property="code"/>
+        <result column="allprice" property="allprice"/>
+        <result column="createtime" property="createtime"/>
+        <result column="status" property="status"/>
+        <result column="uid" property="uid"/>
+        
+        <collection property="orderDetails" ofType="com.qf.entity.OrderDetails">
+            <id column="odid" property="id"></id>
+            <result column="gid" property="gid"/>
+            <result column="gimage" property="gimage"/>
+            <result column="gname" property="gname"/>
+            <result column="gprice" property="gprice"/>
+            <result column="gnumber" property="gnumber"/>
+            <result column="oid" property="oid"/>
+        </collection>
+
+    </resultMap>
+    <!--查询订单列表-->
+    <select id="queryOrdersByUid" resultMap="orderMap">
+        SELECT *,od.id AS odid from orders o join order_details od on o.id=od.oid where o.uid=#{uid}
+    </select>
+
+</mapper>

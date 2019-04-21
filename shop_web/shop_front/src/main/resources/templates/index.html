@@ -12,6 +12,38 @@
     <script type="text/javascript" src="js/focus.js" ></script>
     <script type="text/javascript" src="js/shop_home_tab.js" ></script>
     <script type="text/javascript" src="http://localhost:1119/js/islogin.js"></script>
+    <script>
+        $(function () {
+            $.ajax({
+                url: "http://localhost:1117/cart/list",
+                success:function (data) {
+                    //遍历购物车
+                    if(data) {
+                        //设置购物车的商品数量
+                        $("#cart_num_id").html(data.length);
+                        //设置购物车的列表
+                        var html = "<ul style='width:100%;'>";
+                        for (var i=0;i<data.length;i++) {
+                            //获得购物车的商品信息
+                            var cart = data[i];
+                            html += "<li style='margin-bottom: 15px;width: 200px;'>";
+                            //处理图片路径
+                            var url = cart.goods.gimage.split("|")[0];
+                            html += "<img style='width: 50px;height: 30px; margin-right: 10px;' src='http://47.112.207.98/"+url+"'/>";
+                            html += cart.goods.gname;
+                            // html += cart.goods.gprice;
+                            // html += "小计：" + cart.allprice;
+                            html += "</li>";
+                        }
+                        html += "</ul>";
+                        $("#cart_id").html(html);
+                    }
+                },
+                dataType:"jsonp",
+                jsonpCallback:"showcarts"
+            });
+        })
+    </script>
 
 </head>
 
@@ -39,6 +71,7 @@
                             <div class="topNav_menu_bd" style="display:none;" >
                                 <ul>
                                     <li><a title="已买到的商品" target="_top" href="#">已买到的商品</a></li>
+                                    <li><a title="我的订单" target="_top" href="http://localhost:1117/order/orderlist">我的订单</a></li>
                                     <li><a title="个人主页" target="_top" href="#">个人主页</a></li>
                                     <li><a title="我的好友" target="_top" href="#">我的好友</a></li>
                                 </ul>
@@ -59,8 +92,8 @@
 
                     <li>
                         <div class="topNav_menu">
-                            <a href="#" class="topNavHover">购物车<b>0</b>种商品<i></i></a>
-                            <div class="topNav_menu_bd" style="display:none;">
+                            <a href="http://localhost:1117/cart/cartlist" class="topNavHover">购物车<b id="cart_num_id" >0</b>种商品<i></i></a>
+                            <div class="topNav_menu_bd" style="display:none; width: 200px;height: 100px;" id="cart_id">
                                 <!--
                                 <ul>
                                   <li><a title="已售出的商品" target="_top" href="#">已售出的商品</a></li>

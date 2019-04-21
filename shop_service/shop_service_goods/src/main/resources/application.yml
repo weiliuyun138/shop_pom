@@ -44,6 +44,10 @@ spring:
     password: admin
     #虚拟主机
     virtual-host: /admin
+  #配置redis
+  redis:
+    host: 47.112.207.98
+    password: root
 
 
 
@@ -57,5 +61,8 @@ dubbo:
     port: 20880
   consumer:
     check: false
-    timeout: 3000
-
+    timeout: 30000
+  provider:
+    timeout: 30000
+mybatis-plus:
+  mapper-locations: classpath:com/qf/dao/mapper/*.xml
