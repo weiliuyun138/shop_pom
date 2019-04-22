@@ -2,17 +2,15 @@ package com.qf.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.qf.entity.Goods;
-import com.qf.servie.IGoodsService;
+import com.qf.service.IGoodsService;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.HashMap;
 
 

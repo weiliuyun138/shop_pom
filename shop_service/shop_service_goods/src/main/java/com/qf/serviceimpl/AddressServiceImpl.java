@@ -4,7 +4,7 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.qf.dao.AddressMapper;
 import com.qf.entity.Address;
-import com.qf.servie.IAddressService;
+import com.qf.service.IAddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;

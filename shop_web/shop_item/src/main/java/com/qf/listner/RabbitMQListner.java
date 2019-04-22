@@ -1,17 +1,12 @@
 package com.qf.listner;
 
 import com.qf.entity.Goods;
-import com.qf.servie.IGoodsService;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.FileWriter;
 import java.util.HashMap;
 

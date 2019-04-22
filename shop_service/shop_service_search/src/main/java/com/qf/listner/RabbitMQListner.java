@@ -2,7 +2,7 @@ package com.qf.listner;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.qf.entity.Goods;
-import com.qf.servie.ISearchService;
+import com.qf.service.ISearchService;
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.common.SolrInputDocument;

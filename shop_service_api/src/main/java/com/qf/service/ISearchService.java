@@ -1,8 +1,7 @@
-package com.qf.servie;
+package com.qf.service;
 
 import com.qf.entity.Goods;
 
-import java.io.IOException;
 import java.util.List;
 
 public interface ISearchService {

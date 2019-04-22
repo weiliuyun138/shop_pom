@@ -6,8 +6,8 @@ import com.qf.dao.AddressMapper;
 import com.qf.dao.OrderDetailsMapper;
 import com.qf.dao.OrderMapper;
 import com.qf.entity.*;
-import com.qf.servie.ICartService;
-import com.qf.servie.IOrdersService;
+import com.qf.service.ICartService;
+import com.qf.service.IOrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 

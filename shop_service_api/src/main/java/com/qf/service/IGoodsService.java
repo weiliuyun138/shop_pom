@@ -1,4 +1,4 @@
-package com.qf.servie;
+package com.qf.service;
 
 import com.qf.entity.Goods;
 

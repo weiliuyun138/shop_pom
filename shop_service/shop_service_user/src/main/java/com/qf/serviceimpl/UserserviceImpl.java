@@ -4,7 +4,7 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.qf.dao.UserMapper;
 import com.qf.entity.User;
-import com.qf.servie.IUserService;
+import com.qf.service.IUserService;
 import com.qf.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 

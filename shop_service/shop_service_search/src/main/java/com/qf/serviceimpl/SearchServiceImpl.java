@@ -2,7 +2,7 @@ package com.qf.serviceimpl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.qf.entity.Goods;
-import com.qf.servie.ISearchService;
+import com.qf.service.ISearchService;
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
@@ -15,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 

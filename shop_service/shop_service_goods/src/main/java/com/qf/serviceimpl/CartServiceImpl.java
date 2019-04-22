@@ -7,7 +7,7 @@ import com.qf.dao.GoodsMapper;
 import com.qf.entity.Goods;
 import com.qf.entity.Shopcart;
 import com.qf.entity.User;
-import com.qf.servie.ICartService;
+import com.qf.service.ICartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 
